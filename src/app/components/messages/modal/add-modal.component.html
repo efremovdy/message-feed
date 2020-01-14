@@ -9,9 +9,10 @@
   </mat-form-field>
 
   <mat-form-field>
-    <textarea rows="6" matInput placeholder="Message" formControlName="text"></textarea>
+    <textarea cdkTextareaAutosize matInput placeholder="Message" formControlName="text"></textarea>
+    <mat-hint align="end">{{ form.get('text').value.length }} / 100</mat-hint>
     <mat-error *ngIf="hasError('text', 'required')">Message is required</mat-error>
-    <mat-error *ngIf="hasError('text', 'maxlength')">Maximum length 200 characters</mat-error>
+    <mat-error *ngIf="hasError('text', 'maxlength')">Maximum length 100 characters</mat-error>
   </mat-form-field>
 
 </mat-dialog-content>
