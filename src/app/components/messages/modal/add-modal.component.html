@@ -1,0 +1,22 @@
+<h2 mat-dialog-title>Add new message</h2>
+
+<mat-dialog-content [formGroup]="form">
+  <mat-form-field>
+    <mat-select placeholder="Select" formControlName="authorId">
+      <mat-option *ngFor="let author of authors" [value]="author.authorId">{{ author.authorName }}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="hasError('authorId', 'required')">Author is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea rows="6" matInput placeholder="Message" formControlName="text"></textarea>
+    <mat-error *ngIf="hasError('text', 'required')">Message is required</mat-error>
+    <mat-error *ngIf="hasError('text', 'maxlength')">Maximum length 200 characters</mat-error>
+  </mat-form-field>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button class="mat-raised-button" (click)="close()">Close</button>
+  <button class="mat-raised-button mat-primary" (click)="save()">Save</button>
+</mat-dialog-actions>

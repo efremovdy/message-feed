@@ -26,7 +26,7 @@ export class AuthorsComponent implements OnInit {
     this.apiService.getAuthorMessages(authorId).subscribe((messages: MessageModel[]) => {
       this.authors.forEach(a => {
         if (a.id === authorId) {
-          a.messages = messages;
+          a.messages = messages.sort((b, c) => new Date(c.createdDate).getTime() - new Date(b.createdDate).getTime());
         }
       });
     });

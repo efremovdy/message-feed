@@ -2,7 +2,7 @@
   <mat-form-field class="messages__input-field">
     <input matInput placeholder="Search message..." (input)="onSearchChange($event.target.value)">
   </mat-form-field>
-  <button class="messages__add-btn" mat-mini-fab color="primary" aria-label="Add new message">
+  <button class="messages__add-btn" mat-mini-fab color="primary" aria-label="Add new message" (click)="openDialog()">
     <mat-icon>add</mat-icon>
   </button>
 

@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { throwError } from 'rxjs';
-import { retry, catchError } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
+import { MessageModel } from './models/message-interface';
 
 
 @Injectable({
@@ -16,6 +17,10 @@ export class ApiService {
 
   public getMessages() {
     return this.httpClient.get(this.SERVER_URL + '/messages').pipe(catchError(this.handleError));
+  }
+
+  public addNewMessage(message: MessageModel) {
+    return this.httpClient.post(this.SERVER_URL + '/messages', message).pipe(catchError(this.handleError));
   }
 
   public getAuthors() {
