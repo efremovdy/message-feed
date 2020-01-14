@@ -7,7 +7,8 @@ import { MessagesComponent } from './components/messages/messages.component';
 const routes: Routes = [
   { path: '', redirectTo: 'messages', pathMatch: 'full' },
   { path: 'authors', component: AuthorsComponent },
-  { path: 'messages', component: MessagesComponent }
+  { path: 'messages', component: MessagesComponent },
+  { path: '**', redirectTo: 'messages' }
 ];
 
 @NgModule({

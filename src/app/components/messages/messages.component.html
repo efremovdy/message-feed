@@ -1,1 +1,30 @@
-<p>messages works!</p>
+<div class="messages">
+  <mat-form-field class="messages__input-field">
+    <input matInput placeholder="Search message..." (input)="onSearchChange($event.target.value)">
+  </mat-form-field>
+  <button class="messages__add-btn" mat-mini-fab color="primary" aria-label="Add new message">
+    <mat-icon>add</mat-icon>
+  </button>
+
+  <div *ngIf="messages" class="messages__paginator-box">
+    <div>
+      <span *ngIf="!dataSource.filteredData.length">Not found...</span>
+    </div>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+
+  <mat-spinner *ngIf="!messages.length"></mat-spinner>
+
+  <ng-container *ngIf="dataSource">
+    <mat-card *ngFor="let message of obs | async">
+      <mat-card-header>
+        <mat-card-title>{{message.authorName}}</mat-card-title>
+        <mat-card-subtitle>{{message.createdDate | date : 'dd/MM/yyyy HH:mm'}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{message.text}}</p>
+      </mat-card-content>
+    </mat-card>
+  </ng-container>
+
+</div>

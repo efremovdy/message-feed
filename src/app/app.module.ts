@@ -9,8 +9,11 @@ import {
   MatIconModule,
   MatCardModule,
   MatButtonModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatInputModule,
+  MatPaginatorModule
 } from '@angular/material';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthorsComponent } from './components/authors/authors.component';
 import { MessagesComponent } from './components/messages/messages.component';
@@ -30,7 +33,10 @@ import { MessagesComponent } from './components/messages/messages.component';
     MatIconModule,
     MatCardModule,
     MatButtonModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
