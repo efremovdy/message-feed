@@ -22,6 +22,16 @@ export class ApiService {
     return this.httpClient.get(this.SERVER_URL + '/authors').pipe(catchError(this.handleError));
   }
 
+  public getAuthorMessages(authorId: number) {
+    return this.httpClient.get(this.SERVER_URL + '/messages',
+      {
+        params: {
+          authorId: authorId.toString()
+        }
+      })
+      .pipe(catchError(this.handleError));
+  }
+
   private handleError(error: HttpErrorResponse) {
     let errorMessage = 'Unknown error!';
     if (error.error instanceof ErrorEvent) {

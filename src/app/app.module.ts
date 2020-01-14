@@ -11,7 +11,9 @@ import {
   MatButtonModule,
   MatProgressSpinnerModule,
   MatInputModule,
-  MatPaginatorModule
+  MatPaginatorModule,
+  MatExpansionModule,
+  MatListModule,
 } from '@angular/material';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -36,7 +38,9 @@ import { MessagesComponent } from './components/messages/messages.component';
     MatProgressSpinnerModule,
     MatFormFieldModule,
     MatInputModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatExpansionModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

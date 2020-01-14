@@ -1,1 +1,35 @@
-<p>authors works!</p>
+<div class="authors">
+  <mat-spinner *ngIf="!authors.length"></mat-spinner>
+
+  <mat-card *ngFor="let author of authors">
+    <div class="authors__main-block">
+      <img src="{{ author.imageUrl }}" />
+      <div class="authors__info-block">
+        <mat-card-title>{{author.name}}</mat-card-title>
+        <mat-card-content>
+          <p>{{author.info}}</p>
+        </mat-card-content>
+      </div>
+    </div>
+
+    <mat-expansion-panel (opened)="getAuthorMessages(author.id)">
+      <mat-expansion-panel-header>
+        Messages
+      </mat-expansion-panel-header>
+
+      <ng-template matExpansionPanelContent>
+        <mat-spinner *ngIf="!author.messages"></mat-spinner>
+
+        <mat-list *ngIf="author.messages">
+          <mat-list-item *ngFor="let message of author.messages">
+            <mat-icon matListIcon>message</mat-icon>
+            <h4 matLine>{{message.createdDate | date : 'dd/MM/yyyy HH:mm'}}</h4>
+            <p matLine>
+              <span> {{message.text}} </span>
+            </p>
+          </mat-list-item>
+        </mat-list>
+      </ng-template>
+    </mat-expansion-panel>
+  </mat-card>
+</div>
